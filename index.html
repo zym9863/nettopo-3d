@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetTopo 3D - Network Topology Visualizer</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="scene-container"></div>
+        <div id="ui-panel">
+            <h1><i class="fas fa-network-wired"></i> NetTopo 3D</h1>
+            <div class="control-section">
+                <h2><i class="fas fa-plus-circle"></i> Add Network Device</h2>
+                <div class="device-buttons">
+                    <button id="add-router"><i class="fas fa-broadcast-tower"></i> Router</button>
+                    <button id="add-switch"><i class="fas fa-exchange-alt"></i> Switch</button>
+                    <button id="add-pc"><i class="fas fa-desktop"></i> PC</button>
+                </div>
+            </div>
+            <div class="control-section">
+                <h2><i class="fas fa-project-diagram"></i> Topology</h2>
+                <button id="connect-devices"><i class="fas fa-link"></i> Connect Devices</button>
+                <button id="load-sample"><i class="fas fa-cloud-download-alt"></i> Load Sample</button>
+                <button id="clear-topology"><i class="fas fa-trash-alt"></i> Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Application scripts -->
+    <script src="js/utils/LabelUtils.js"></script>
+    <script src="js/models/NetworkNode.js"></script>
+    <script src="js/models/Router.js"></script>
+    <script src="js/models/Switch.js"></script>
+    <script src="js/models/PC.js"></script>
+    <script src="js/models/Connection.js"></script>
+    <script src="js/TopologyManager.js"></script>
+    <script src="js/SceneManager.js"></script>
+    <script src="js/UIController.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

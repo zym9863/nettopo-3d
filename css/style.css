@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Modern color palette */
+    --primary-color: #3f51b5;
+    --primary-light: #757de8;
+    --primary-dark: #002984;
+    --secondary-color: #00bcd4;
+    --secondary-light: #62efff;
+    --secondary-dark: #008ba3;
+    --accent-color: #ff4081;
+    --text-light: #ffffff;
+    --text-dark: #212121;
+    --background-dark: #1e1e2f;
+    --background-light: #f5f5f7;
+    --panel-bg: #2d2d44;
+    --panel-border: #3d3d5c;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+    --info-color: #2196f3;
+    --router-color: #3f51b5;
+    --switch-color: #00bcd4;
+    --pc-color: #7e57c2;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+}
+
+#app {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#scene-container {
+    flex: 1;
+    background-color: var(--background-dark);
+}
+
+#ui-panel {
+    width: 300px;
+    background-color: var(--panel-bg);
+    color: var(--text-light);
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid var(--panel-border);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--text-light);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 18px;
+    margin: 15px 0 10px 0;
+    font-weight: 500;
+    color: var(--secondary-light);
+}
+
+.control-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+button {
+    background-color: var(--success-color);
+    border: none;
+    color: var(--text-light);
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 5px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: var(--success-color);
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.device-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#add-router {
+    background-color: var(--router-color);
+}
+
+#add-switch {
+    background-color: var(--switch-color);
+}
+
+#add-pc {
+    background-color: var(--pc-color);
+}
+
+#connect-devices {
+    background-color: var(--accent-color);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#load-sample {
+    background-color: var(--info-color);
+    width: 100%;
+    margin-top: 5px;
+}
+
+#clear-topology {
+    background-color: var(--danger-color);
+    width: 100%;
+    margin-top: 5px;
+}
