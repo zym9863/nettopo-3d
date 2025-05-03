@@ -9,15 +9,38 @@ class NetworkNode {
      * @param {String} options.name - Display name for the node
      * @param {Object} options.position - 3D position {x, y, z}
      * @param {String} options.type - Type of network node
+     * @param {String} options.ipAddress - IP address of the node
+     * @param {String} options.status - Status of the node ('online', 'offline', 'warning')
      */
     constructor(options = {}) {
         this.id = options.id || `node-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
         this.name = options.name || `Node ${this.id}`;
         this.position = options.position || { x: 0, y: 0, z: 0 };
         this.type = options.type || 'generic';
+        this.ipAddress = options.ipAddress || this.generateRandomIP();
+        this.status = options.status || 'online';
         this.connections = [];
         this.mesh = null;
         this.selected = false;
+    }
+
+    /**
+     * Generate a random IP address
+     * @returns {String} Random IP address
+     */
+    generateRandomIP() {
+        const octet1 = Math.floor(Math.random() * 223) + 1; // Avoid reserved ranges
+        const octet2 = Math.floor(Math.random() * 256);
+        const octet3 = Math.floor(Math.random() * 256);
+        const octet4 = Math.floor(Math.random() * 254) + 1; // Avoid .0 and .255
+
+        // Use private IP ranges for realistic network topologies
+        if (octet1 === 10 || (octet1 === 172 && octet2 >= 16 && octet2 <= 31) || (octet1 === 192 && octet2 === 168)) {
+            return `${octet1}.${octet2}.${octet3}.${octet4}`;
+        } else {
+            // Default to 192.168.x.y for private networks
+            return `192.168.${octet3 % 256}.${octet4}`;
+        }
     }
 
     /**
@@ -69,7 +92,7 @@ class NetworkNode {
      */
     updateSelectionVisual() {
         if (!this.mesh) return;
-        
+
         if (this.selected) {
             // Add selection highlight
             if (!this.selectionBox) {
@@ -99,7 +122,24 @@ class NetworkNode {
             id: this.id,
             name: this.name,
             type: this.type,
-            position: this.position
+            position: this.position,
+            ipAddress: this.ipAddress,
+            status: this.status
         };
+    }
+
+    /**
+     * Get formatted information about this node's connections
+     * @returns {String} Formatted connection information
+     */
+    getConnectionsInfo() {
+        if (this.connections.length === 0) {
+            return "None";
+        }
+
+        return this.connections.map(conn => {
+            const otherNode = conn.source.id === this.id ? conn.target : conn.source;
+            return `${otherNode.name} (${conn.type}, ${conn.bandwidth} Mbps)`;
+        }).join('<br>');
     }
 }

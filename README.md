@@ -9,6 +9,7 @@ A 3D network topology visualization tool built with Three.js that allows users t
 - **Interactive 3D Visualization**: View network topologies in a fully interactive 3D environment
 - **Multiple Device Types**: Create routers, switches, and PCs with detailed 3D models
 - **Device Connections**: Easily connect network devices with visual links
+- **Node Information Display**: Click on any device to view detailed information including name, IP address, status, and connections
 - **Sample Topology**: Load a pre-configured sample topology for demonstration
 - **Custom Naming**: Name your devices for better organization
 - **Selection & Highlighting**: Select devices to highlight them for connection or inspection
@@ -70,6 +71,17 @@ Then navigate to `http://localhost:8080` in your browser.
 ### Clearing the Topology
 
 - Click the "Clear All" button to remove all devices and connections
+
+### Viewing Node Information
+
+1. Click on any device in the 3D scene
+2. A modal window will appear showing detailed information about the device:
+   - Name
+   - Type
+   - IP Address
+   - Status
+   - Connections
+3. Close the modal by clicking the X button, pressing Escape, or clicking outside the modal
 
 ### Navigation
 

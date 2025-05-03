@@ -28,6 +28,40 @@
                 <button id="clear-topology"><i class="fas fa-trash-alt"></i> Clear All</button>
             </div>
         </div>
+
+        <!-- Node Information Modal -->
+        <div id="node-info-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-info-circle"></i> <span id="node-info-title">Node Information</span></h2>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <table class="info-table">
+                        <tr>
+                            <td><strong>Name:</strong></td>
+                            <td id="node-info-name"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type:</strong></td>
+                            <td id="node-info-type"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>IP Address:</strong></td>
+                            <td id="node-info-ip"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status:</strong></td>
+                            <td id="node-info-status"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Connections:</strong></td>
+                            <td id="node-info-connections"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Three.js library -->
